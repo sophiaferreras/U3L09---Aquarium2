@@ -11,7 +11,7 @@ function setup() {
   fishX = width / 2;
   fishY = height / 2;
   fishSize = 50;
-  fishColor = color(200, 100, 100);
+  fishColor = color(200, 100, 10); 
 
 
   // Initialize bubbles
