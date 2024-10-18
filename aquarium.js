@@ -1,9 +1,12 @@
 let fishX, fishY, fishSize;
 let fishColor;
+let fishX2, fishY2, fishSize2;
+let fishColor2;
 let aquariumName = "My Aquarium";
 let foodX, foodY;
 let foodDropped = false;
 let bubbles = [];
+let speed = 5
 
 
 function setup() {
@@ -12,6 +15,10 @@ function setup() {
   fishY = height / 2;
   fishSize = 50;
   fishColor = color(200, 100, 10); 
+  fishX2 = width / 4;
+  fishY2 = height / 4;
+  fishSize2 = 50;
+  fishColor2 = color(173, 216, 230); 
 
 
   // Initialize bubbles
@@ -75,6 +82,26 @@ function draw() {
   } else {
     fishColor = color(200, 100, 100);
   }
+
+  // move second fish
+  if(keyIsDown(LEFT_ARROW)) {
+    fishX2 -= speed
+  }
+  if(keyIsDown(RIGHT_ARROW)) {
+    fishX2 += speed
+  }
+  if(keyIsDown(UP_ARROW)) {
+    fishY2 -= speed
+  }
+  if(keyIsDown(DOWN_ARROW)) {
+    fishY2 += speed
+  }
+
+  // draw second fish
+  fill(fishColor2);
+  ellipse(fishX2, fishY2, fishSize2, fishSize2 / 2);
+  triangle(fishX2 - fishSize2 / 2, fishY2, fishX2 - fishSize2, fishY2 - fishSize2 / 4, fishX2 - fishSize2, fishY2 + fishSize2 / 4);
+  
 }
 
 
